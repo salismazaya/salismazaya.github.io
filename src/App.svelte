@@ -23,6 +23,7 @@
         "Django",
         "Flask",
         "Express",
+        'MySQL',
         "Git",
         "Redis",
         "Linux",
