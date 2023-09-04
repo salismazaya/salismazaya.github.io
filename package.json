@@ -11,7 +11,7 @@
     "deploy": "gh-pages -d dist"
   },
   "devDependencies": {
-    "@sveltejs/vite-plugin-svelte": "^2.0.3",
+    "@sveltejs/vite-plugin-svelte": "^2.4.5",
     "autoprefixer": "^10.4.14",
     "postcss": "^8.4.21",
     "svelte": "^3.55.1",
