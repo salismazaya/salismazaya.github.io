@@ -1,160 +1,331 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="UTF-8" />
+    <title>SELAMAT TAHUN BARU 2026</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Salis Mazaya - Radical Developer</title>
-    <link rel="icon" type="image/png" href="/ghost-by-flaticon.png" />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Source+Code+Pro:wght@700&display=swap"
-      rel="stylesheet"
-    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Pacifico&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        height: 100vh;
+        background: linear-gradient(135deg, #ff6b6b, #feca57, #ff9f43, #ff4757);
+        background-size: 400% 400%;
+        animation: boomerGradient 18s ease infinite;
+        font-family: "Comic Neue", cursive;
+        color: #000;
+        overflow: hidden;
+        background-image: url("https://images.unsplash.com/photo-1548625337-3e3c97b2c77e?w=1400"),
+          linear-gradient(135deg, #ff6b6b88, #feca5788);
+        background-blend-mode: overlay;
+      }
+
+      @keyframes boomerGradient {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      .container {
+        position: relative;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 20px;
+        opacity: 0; /* Awalnya hidden */
+        transition: opacity 1s ease;
+      }
+
+      .container.visible {
+        opacity: 1;
+      }
+
+      h1 {
+        font-family: "Comic Neue", cursive;
+        font-size: clamp(3.2rem, 12vw, 8rem);
+        color: #fff;
+        text-shadow: 6px 6px 0 #000, -6px -6px 0 #000, 6px -6px 0 #000,
+          -6px 6px 0 #000, 0 0 30px #ffeb3b;
+        transform: rotate(-4deg);
+        animation: wobble 3.5s infinite ease-in-out;
+        margin-bottom: 10px;
+        letter-spacing: 4px;
+      }
+
+      .subtitle {
+        font-size: clamp(1.8rem, 7vw, 3.8rem);
+        color: #ffeb3b;
+        text-shadow: 4px 4px 0 #d50000;
+        margin: 10px 0 30px;
+        animation: pulse 2.5s infinite;
+      }
+
+      .quote {
+        font-size: clamp(1.6rem, 5vw, 2.8rem);
+        color: white;
+        background: rgba(0, 0, 0, 0.65);
+        padding: 20px 40px;
+        border-radius: 25px;
+        border: 8px double #ffeb3b;
+        max-width: 90%;
+        margin: 20px auto 40px;
+        box-shadow: 0 0 30px #000;
+        transform: rotate(3deg);
+      }
+
+      .foto-ku {
+        width: 260px;
+        height: 260px;
+        border-radius: 50%;
+        border: 12px solid white;
+        box-shadow: 0 0 0 12px #ffeb3b, 0 0 0 24px #d50000, 0 0 40px #000;
+        object-fit: cover;
+        margin: 30px 0;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .api-text {
+        font-size: 3.2rem;
+        font-weight: bold;
+        color: #ff3d00;
+        text-shadow: 0 0 20px #ff9100, 0 0 40px #ff3d00;
+        margin-top: 20px;
+        animation: flicker 4s infinite alternate;
+      }
+
+      /* Animasi lebay boomer */
+      @keyframes wobble {
+        0%,
+        100% {
+          transform: rotate(-4deg) scale(1);
+        }
+        25% {
+          transform: rotate(-8deg) scale(1.03);
+        }
+        75% {
+          transform: rotate(0deg) scale(1.05);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.08);
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        50% {
+          transform: translateY(-30px) rotate(6deg);
+        }
+      }
+
+      @keyframes flicker {
+        0%,
+        100% {
+          opacity: 1;
+          text-shadow: 0 0 20px #ff9100;
+        }
+        50% {
+          opacity: 0.8;
+          text-shadow: 0 0 40px #ff1744;
+        }
+      }
+
+      .sparkle {
+        position: absolute;
+        font-size: 3rem;
+        color: #fff;
+        pointer-events: none;
+        animation: sparkleFly linear infinite;
+        text-shadow: 0 0 15px #fff;
+      }
+
+      @keyframes sparkleFly {
+        0% {
+          transform: translateY(100vh) scale(0.5);
+          opacity: 0;
+        }
+        20% {
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(-30vh) scale(1.5);
+          opacity: 0;
+        }
+      }
+
+      /* Pop-up style */
+      #popup-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.85);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        animation: fadeIn 0.5s ease;
+      }
+
+      #popup {
+        background: linear-gradient(135deg, #ffeb3b, #ff4757);
+        padding: 40px;
+        border-radius: 30px;
+        text-align: center;
+        max-width: 80%;
+        box-shadow: 0 0 50px #fff;
+        transform: scale(0.9);
+        animation: popupBounce 1s ease forwards;
+      }
+
+      #popup h2 {
+        font-size: 3rem;
+        color: #000;
+        text-shadow: 0 0 10px #fff;
+        margin-bottom: 20px;
+      }
+
+      #popup p {
+        font-size: 2rem;
+        color: #fff;
+        margin-bottom: 30px;
+      }
+
+      #popup button {
+        padding: 15px 40px;
+        font-size: 2rem;
+        background: #d50000;
+        color: #fff;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        box-shadow: 0 0 20px #ffeb3b;
+        transition: transform 0.3s;
+      }
+
+      #popup button:hover {
+        transform: scale(1.1);
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes popupBounce {
+        0% {
+          transform: scale(0.5);
+          opacity: 0;
+        }
+        50% {
+          transform: scale(1.1);
+          opacity: 1;
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    </style>
   </head>
   <body>
-    <header>
-      <nav>
-        <div class="logo">mazaya.is-a.dev</div>
-        <ul>
-          <li><a href="#hero">Home</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+    <!-- Pop-up yang muncul dulu -->
+    <div id="popup-overlay">
+      <div id="popup">
+        <h2>SELAMAT DATANG DI TAHUN BARU 2026! 🎉</h2>
+        <p>Siap? 🔥😎<br />Click OK buat lanjut!</p>
+        <button onclick="closePopup()">OK, Gasss!</button>
+      </div>
+    </div>
 
-    <main>
-      <section id="hero" class="hero-section">
-        <div class="hero-content">
-          <img
-            src="https://github.com/salismazaya.png"
-            alt="Profile Picture of Salis Mazaya"
-            class="profile-pic"
-          />
-          <h1>Salis Mazaya</h1>
-          <h2 class="tagline">Radical Developer</h2>
-          <p class="bio">
-            Backend & Blockchain dev with 5+ years of experience. Passionate
-            about building secure, efficient systems and exploring blockchain
-            innovations.
-          </p>
-          <div class="location">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
-              />
-            </svg>
-            Lebak, Indonesia
-          </div>
-        </div>
-      </section>
+    <div class="container">
+      <h1>SELAMAT TAHUN BARU 2026!!! 🎉🎆</h1>
 
-      <section id="projects" class="projects-section">
-        <h2>Featured Projects 🚀</h2>
-        <div class="projects-grid">
-          <div class="project-card">
-            <h3>cteker</h3>
-            <p>Cteker (Cryptocurrency Transaction Maker)</p>
-            <span class="lang-tag python">Python</span>
-            <a
-              href="https://github.com/salismazaya/cteker"
-              target="_blank"
-              rel="noopener noreferrer"
-              >View on GitHub</a
-            >
-          </div>
+      <div class="subtitle">
+        Salam interaksi
+      </div>
 
-          <div class="project-card">
-            <h3>walletthon</h3>
-            <p>Unofficial library for managing your @wallet account</p>
-            <span class="lang-tag python">Python</span>
-            <a
-              href="https://github.com/salismazaya/walletthon"
-              target="_blank"
-              rel="noopener noreferrer"
-              >View on GitHub</a
-            >
-          </div>
+      <div class="quote">
+        Orang-orang tahun baru pada bakar jagung<br />
+        <span style="font-size: 1.4em"
+          >Kita mah... bakar dosa aja lah 😭🙏</span
+        >
+      </div>
 
-          <div class="project-card">
-            <h3>whatsapp-bot</h3>
-            <p>WhatsApp AI Bot with Minimalist Features</p>
-            <span class="lang-tag js">JavaScript</span>
-            <a
-              href="https://github.com/salismazaya/whatsapp-bot"
-              target="_blank"
-              rel="noopener noreferrer"
-              >View on GitHub</a
-            >
-          </div>
+      <!-- Ganti src dengan foto kamu sendiri (upload ke imgur / hosting gratis dulu) -->
+      <img
+        src="/iseng.jpeg"
+        alt="Foto kece abis"
+        class="foto-ku"
+      />
 
-          <div class="project-card">
-            <h3>uangkasep-monorepo</h3>
-            <p>
-              A web application based on blockchain (web3) to create a
-              treasury-free cash system. Long live democracy! ✊
-            </p>
-            <span class="lang-tag ts">TypeScript</span>
-            <a
-              href="https://github.com/salismazaya/uangkasep-monorepo"
-              target="_blank"
-              rel="noopener noreferrer"
-              >View on GitHub</a
-            >
-          </div>
+      <div class="api-text">Salam sejahtera semuanyaa</div>
 
-          <div class="project-card">
-            <h3>baksokuah</h3>
-            <p>I Can See You</p>
-            <span class="lang-tag html">HTML</span>
-            <a
-              href="https://github.com/salismazaya/baksokuah"
-              target="_blank"
-              rel="noopener noreferrer"
-              >View on GitHub</a
-            >
-          </div>
-        </div>
-      </section>
+      <!-- glitter sparkle boomer style -->
+    </div>
 
-      <section id="contact" class="contact-section">
-        <h2>Get in Touch</h2>
-        <p>Let's connect and discuss great ideas!</p>
-        <div class="social-links">
-          <a
-            href="https://t.me/salismiftah"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Telegram</a
-          >
-          <a
-            href="https://github.com/salismazaya"
-            target="_blank"
-            rel="noopener noreferrer"
-            >GitHub</a
-          >
-          <a
-            href="https://fb.me/salismazaya"
-            target="_blank"
-            rel="noopener noreferrer"
-            >Facebook</a
-          >
-        </div>
-      </section>
-    </main>
+    <script>
+      const audio = new Audio("/audio.mp3");
+      // Fungsi tutup pop-up dan show page
+      function closePopup() {
+        document.getElementById("popup-overlay").style.display = "none";
+        document.querySelector(".container").classList.add("visible");
+        audio.loop = true;
+        audio.play();
+      }
 
-    <footer>
-      <p>&copy; 2025 Salis Mazaya. Built with ❤️</p>
-    </footer>
+      // Sparkle lebay ala boomer
+      function createSparkle() {
+        const sparkle = document.createElement("div");
+        sparkle.className = "sparkle";
+        sparkle.textContent = ["✨", "💫", "🌟", "🎇", "🎆"][
+          Math.floor(Math.random() * 5)
+        ];
 
-    <script src="script.js"></script>
+        sparkle.style.left = Math.random() * 100 + "vw";
+        sparkle.style.animationDuration = Math.random() * 3 + 3 + "s";
+        sparkle.style.fontSize = Math.random() * 2 + 2 + "rem";
+
+        document.body.appendChild(sparkle);
+
+        setTimeout(() => sparkle.remove(), 6000);
+      }
+
+      setInterval(createSparkle, 400);
+
+      // Auto play audio boomer (uncomment kalo berani)
+      // const audio = new Audio('https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3');
+      // audio.volume = 0.15;
+      // audio.loop = true;
+      // window.addEventListener('click', () => audio.play());
+    </script>
   </body>
 </html>
